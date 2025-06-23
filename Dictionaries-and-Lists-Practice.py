@@ -24,26 +24,20 @@ print (class_journal)
 # Their list of grades
 # Their average grade (rounded to 2 decimal places)
 
+for name in class_journal:  #loop for using the names of students.
+    totalGrades=0
+    grades = class_journal[name]    
+    for i in range(len(grades)):    # searching in a list of the grades of each student to find the total grades.
+      totalGrades+=grades[i]
+      avg = round(totalGrades / len(grades),2)  # find the avg and rounded it to 2 decimal. 
+    class_journal[name] = {           # creating a 2 dictionary inside each other to add the avg.
+          "grades": grades,   
+          "average": round(avg, 2)
+    }
 
-for name in class_journal:  #loop for the names of students.
-  grades=0
-  counter=0
-  print("\n")  # to move to the next line.
-  print(name,end="   ")  # printing the name and keep printing at the same line.
-  print("Grades:",end=" ") # printing the grades and keep printing at the same line.
-  
-  for grade in class_journal[name]:  #loop to find the grades.
-    print(grade,end=" ")
-    grades+=grade
-    counter+=1   # counter to count how many grade we have for each student.
-    avg=grades/counter
-    roundedAvg=round(avg,2)  #using round function to round to 2 decimal places.  (https://www.w3schools.com/python/ref_func_round.asp)
-  print("Average:",roundedAvg,end=" ")
-
-
-
-
-
-
-
-
+print(class_journal)       #printing the names,grades and average for each student.
+for name in class_journal:
+  print("\n name:",name,end=", the grades: ")
+  for grades in class_journal[name]["grades"]:
+    print(grades,end=" ")
+  print(",the average is: ",class_journal[name]["average"])
