@@ -90,3 +90,16 @@ def gradeBelow70():
         if  name not in namesBelow70:   #adding students names to a list
           namesBelow70.append(name)
   print(namesBelow70)
+
+#How many total grades were entered across the whole class?
+# What is the overall class average?
+def totalGradesAndOverAllAvg():
+  counter=0
+  studentsTotalGrades=0
+  for name in class_journal:
+    grades=class_journal[name]["grades"]
+    for g in grades:
+      counter+=1
+      studentsTotalGrades += g
+      overAllAvg=studentsTotalGrades/counter
+  print(overAllAvg)
