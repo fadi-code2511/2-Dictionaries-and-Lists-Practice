@@ -79,3 +79,14 @@ def mostConsistentPerformance():   #function to find the most consistent perform
         mindif=dif
         nameStudentMin=name
   print("The most consistent performance student is :",nameStudentMin)
+
+# Who had at least one grade below 70?
+def gradeBelow70():
+  namesBelow70=[]
+  for name in class_journal:
+    grades=class_journal[name]["grades"]
+    for g in grades:   #geting the grades.
+      if g < 70:   # checking who has  grades less than 70.
+        if  name not in namesBelow70:   #adding students names to a list
+          namesBelow70.append(name)
+  print(namesBelow70)
