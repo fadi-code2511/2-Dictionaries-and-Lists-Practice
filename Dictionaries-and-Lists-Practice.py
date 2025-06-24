@@ -57,6 +57,8 @@ def highestAvg():
     if avg>highestAvg:  #find the highest avg.
       highestAvg=avg
       highestAvgName=name
+  r=str(highestAvgName)+" has the highest average "+ str(highestAvg)+"\n"
+  return r
   print(highestAvgName,"has the highest average",highestAvg)
 
 # Who showed the most consistent performance?
@@ -78,6 +80,8 @@ def mostConsistentPerformance():   #function to find the most consistent perform
     if dif <mindif:
         mindif=dif
         nameStudentMin=name
+  r=str(nameStudentMin)+" has the most consistent performance with minimum difference "+str(mindif)+"\n"
+  return r
   print("The most consistent performance student is :",nameStudentMin)
 
 # Who had at least one grade below 70?
@@ -89,6 +93,11 @@ def gradeBelow70():
       if g < 70:   # checking who has  grades less than 70.
         if  name not in namesBelow70:   #adding students names to a list
           namesBelow70.append(name)
+  s=""
+  for i in namesBelow70:     #getting the names from the list as strings
+    s+=i
+  r="students names who has grades below 70 "+str(s)+" \n"
+  return r
   print(namesBelow70)
 
 #How many total grades were entered across the whole class?
@@ -102,4 +111,12 @@ def totalGradesAndOverAllAvg():
       counter+=1
       studentsTotalGrades += g
       overAllAvg=studentsTotalGrades/counter
-  print(overAllAvg)
+  r="overall average is "+str(overAllAvg) + " student total grades "+ str(studentsTotalGrades)+"\n"
+  return r
+
+  # print(overAllAvg)
+
+report=highestAvg()+mostConsistentPerformance()+gradeBelow70()+totalGradesAndOverAllAvg()  # getting all info as  returing functions to create the report.
+with open("report.txt", "w") as file:  # to create a Txt file and write in the file
+    file.write(report)
+print("File report.txt has been created!")
