@@ -16,7 +16,7 @@ for info in records:   # loop for taking the key and value.
         class_journal[name]=[]       # adding the keys wiht list data type.
         class_journal[name].append(grade)    #adding the values     .
 
-print (class_journal)
+# print (class_journal)
 
 # Part 2: The Basic Report
 # For each student, print:
@@ -26,18 +26,35 @@ print (class_journal)
 
 for name in class_journal:  #loop for using the names of students.
     totalGrades=0
-    grades = class_journal[name]    
+    grades = class_journal[name]
     for i in range(len(grades)):    # searching in a list of the grades of each student to find the total grades.
       totalGrades+=grades[i]
-      avg = round(totalGrades / len(grades),2)  # find the avg and rounded it to 2 decimal. 
-    class_journal[name] = {           # creating a 2 dictionary inside each other to add the avg.
-          "grades": grades,   
+      avg = round(totalGrades / len(grades),2)  # find the avg and rounded it to 2 decimal.
+    class_journal[name] = {           # creating 2 dictionary inside each other to add the avg.
+          "grades": grades,
           "average": round(avg, 2)
     }
 
-print(class_journal)       #printing the names,grades and average for each student.
+# print(class_journal)       
+
+#printing the names,grades and average for each student.
 for name in class_journal:
-  print("\n name:",name,end=", the grades: ")
+  print("\nname:",name,end=", the grades: ")
   for grades in class_journal[name]["grades"]:
     print(grades,end=" ")
   print(",the average is: ",class_journal[name]["average"])
+
+# Part 3: Deeper Analysis:
+
+#who has the highst avg.
+def highestAvg():
+  highestAvg=0
+  avg=0
+  highestAvgName=""
+  for name in class_journal:
+    avg=class_journal[name]["average"]  # geting the avg of the students
+    grades=class_journal[name]["grades"] # getting the grades of the students
+    if avg>highestAvg:  #find the highest avg.
+      highestAvg=avg
+      highestAvgName=name
+  print(highestAvgName,"has the highest average",highestAvg)
