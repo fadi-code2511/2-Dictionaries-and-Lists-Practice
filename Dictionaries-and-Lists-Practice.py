@@ -58,3 +58,24 @@ def highestAvg():
       highestAvg=avg
       highestAvgName=name
   print(highestAvgName,"has the highest average",highestAvg)
+
+# Who showed the most consistent performance?
+def mostConsistentPerformance():   #function to find the most consistent performance.
+  dif=0
+  mindif=1000
+  nameStudentMin=""
+  for name in class_journal:
+    grades=class_journal[name]["grades"]
+    highestGrade = grades[0]
+    lowestGrade =  grades[0]
+    
+    for g in grades:            #checking the highest and lowest grade.
+      if highestGrade<g:
+        highestGrade=g
+      if lowestGrade>g:
+        lowestGrade=g
+    dif=highestGrade-lowestGrade
+    if dif <mindif:
+        mindif=dif
+        nameStudentMin=name
+  print("The most consistent performance student is :",nameStudentMin)
