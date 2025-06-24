@@ -120,3 +120,30 @@ report=highestAvg()+mostConsistentPerformance()+gradeBelow70()+totalGradesAndOve
 with open("report.txt", "w") as file:  # to create a Txt file and write in the file
     file.write(report)
 print("File report.txt has been created!")
+
+#part 4
+#What if we had more data?
+newGrades = [["Jana", 99], ["Ziad", 78], ["Layla", 84]]
+# adding the new info to the dictionary (class_journal)
+for info in newGrades:
+    name = info[0]
+    grade = info[1]
+    if name in class_journal:
+        class_journal[name]["grades"].append(grade)
+    else:
+        class_journal[name] = {"grades": [grade], "average": 0}
+
+# calculating new average
+for name in class_journal:
+    grades = class_journal[name]["grades"]
+    avg = round(sum(grades) / len(grades), 2)
+    class_journal[name]["average"] = avg
+
+# updated the report
+newReport = ( "\n" + "\nupdate the report with new info:\n\n" + highestAvg() + mostConsistentPerformance() + gradeBelow70() + totalGradesAndOverAllAvg())
+
+# adding new info to file
+with open("report.txt", "a") as file:  # used a instead of w to update the report
+    file.write(newReport)
+
+print("you have added the new info and  report.txt has been updated")
