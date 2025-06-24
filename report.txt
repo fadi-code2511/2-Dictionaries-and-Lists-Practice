@@ -1,0 +1,12 @@
+Jana has the highest average 97.0
+Layla has the most consistent performance with minimum difference 5
+students names who has grades below 70 Ziad 
+overall average is 83.25 student total grades 999
+
+
+update the report with new info:
+
+Jana has the highest average 97.5
+Jana has the most consistent performance with minimum difference 6
+students names who has grades below 70 Ziad 
+overall average is 84.0 student total grades 1260
